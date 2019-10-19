@@ -1,1 +1,17 @@
-hh
+magic 和 dunder:
+magic method 是特殊方法的昵称。有些开发者在提到诸如__getitem__()这类方法时会说成“下划线下划线getitem”,但这样说显然很麻烦并且这种说法还会引起歧义，
+所以我们将这类函数称之为dunergetitem函数。
+ self._cards = [Card(rank, suit) for suit in self.suits                                        
+                                  for rank in self.ranks] # 这行代码可以看作是俩层for循环。
+__len__(self): 用来实现长度返回。
+__getitem__(self, position): 用来将对象转换成一个列表迭代器, 在对对象进行操作时可以对它进行迭代，也可以通过‘对象[n]’的方式读取指定位置的数值。
+Python 已经内置了从一个序列中随机选出一个元素的函数 random.choice ： 通过choice(容器对象)随机生成一个元素。
+集合有index()方法来查询下标。
+
+特殊方法的使用：
+特殊方法的存在是为了让python解释器调用，在实际中都使用len(), iter().....而不会去使用a.__len__(), a.__iter__()等。
+通过内置的函数（例如 len、iter、str，等等）来使用特殊方法是最好的选择。这些内 置函数不仅会调用特殊方法，通常还提供额外的好处，而且对于内置的类来说，它们的速 度更快。
+不要自己想当然地随意添加特殊方法，比如 __foo__ 之类的，因为虽然现在这个名字没 有被 Python 内部使用，以后就不一定了。 
+
+
+
